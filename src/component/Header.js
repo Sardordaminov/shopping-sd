@@ -7,8 +7,7 @@ const showOrders = (props) => {
         allprice += Number.parseFloat(el.price)
     });
 
-    let fee = 0;
-    fee = Math.floor(allprice / 100 * 5)
+    let fee = Math.floor( allprice / 100 * 5)
 
     return (
         <div className='order-cart-item'>

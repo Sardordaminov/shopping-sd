@@ -81,35 +81,42 @@ function App() {
     },
   ]
 
-  const deleteOrder = (id) => {
-    setOrders((prevOrder) => prevOrder.filter((el) => el.id !== id))
-  }
   const addOrder = (item) => {
     let isInArray = false;
     orders.forEach((el) => {
-      if (el.id === item.id) { isInArray = true }
+      if (el.id === item.id) {
+        isInArray = true;
+      }
     });
-    if (!isInArray) setOrders((prevOrders) => [...prevOrders, item]);
-    else{
+    if (!isInArray) {
+      setOrders((prevOrders) => [...prevOrders, item])
+
+    } else {
       alert('already in orders')
     }
   };
+
   const addFavorite = (item) => {
     let isInArray = false;
+
     favorite.forEach((el) => {
       if (el.id === item.id) { isInArray = true }
     });
+
     if (!isInArray) setFavorite((prevFavorite) => [...prevFavorite, item]);
-    else{
+    else {
       alert('already in favorites')
     }
   };
+  const deleteOrder = (id) => {
+    setOrders((prevOrder) => prevOrder.filter((el) => el.id !== id))
+  }
   const deleteFavorite = (id) => {
     setFavorite((prevFavorite) => prevFavorite.filter((el) => el.id !== id))
   }
   return (
     <div className='wrapper'>
-      <Header orders={orders} onDelete={deleteOrder} onDelete1={deleteFavorite} favorite={favorite}/>
+      <Header orders={orders} onDelete={deleteOrder} onDelete1={deleteFavorite} favorite={favorite} />
       <Items items={items} addOrder={addOrder} addFavorite={addFavorite} />
       <Footer />
     </div>

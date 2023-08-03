@@ -28,7 +28,6 @@ const Items = (props) => {
                         <div onClick={() => { props.addFavorite(el) }} className="favourite" ><i className="fa-light fa-heart"></i></div>
                         <img src={'./img/' + el.img} alt='' />
                         <h2>{el.title}</h2>
-                        <p>{el.discount}</p>
                         <label className='item-price-title'>ЦЕНА:</label>
                         <b>{el.price}₽</b>
                         <button onClick={() => { props.addOrder(el) }} className='plus'>
