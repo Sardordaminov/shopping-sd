@@ -7,7 +7,7 @@ const showOrders = (props) => {
         allprice += Number.parseFloat(el.price)
     });
 
-    let fee = Math.floor( allprice / 100 * 5)
+    let fee = Math.floor(allprice / 100 * 5)
 
     return (
         <div className='order-cart-item'>
@@ -49,17 +49,10 @@ const showFavorites = (props) => {
     )
 }
 
-const showNothing = () => {
+const showNothing = (name) => {
     return (
         <div className='nothing'>
-            <h2>Корзина пустая :(</h2>
-        </div>
-    )
-}
-const notFavorite = () => {
-    return (
-        <div className='nothing'>
-            <h2>Закладок нет :(</h2>
+            <h2>{name} пустая &#128547;</h2>
         </div>
     )
 }
@@ -92,7 +85,7 @@ const Header = (props) => {
                     <button className='close-box btn' onClick={() => setCartOpen(cartopen => !cartopen)}><FaTimes className='close' /></button>
                 </div>
                 <div className='order-cart'>
-                    {props?.orders?.length > 0 ? showOrders(props) : showNothing()}
+                    {props?.orders?.length > 0 ? showOrders(props) : showNothing("Корзина")}
                 </div>
             </div>
 
@@ -103,7 +96,7 @@ const Header = (props) => {
                     <button className='close-box btn' onClick={() => setFavorite1(favorite1 => !favorite1)}><FaTimes className='close' /></button>
                 </div>
                 <div className='favorite-cart'>
-                    {props?.favorite?.length > 0 ? showFavorites(props) : notFavorite()}
+                    {props?.favorite?.length > 0 ? showFavorites(props) : showNothing("Закладок")}
                 </div>
             </div>
         </header>
