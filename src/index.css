@@ -257,6 +257,7 @@ main .favourite:hover,
 main .carts {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 main .carts .cart {
   width: 210px;
@@ -270,6 +271,7 @@ main .carts .cart {
   justify-content: space-between;
   position: relative;
 }
+
 .carts .cart .favourite {
   position: absolute;
   top: 30px;
@@ -294,6 +296,14 @@ main .carts .cart {
 .favourite.active .fa-heart {
   color: #ff8585;
 }
+.carts .cart.infavorite .favourite {
+  border: 1px solid #ffdada;
+  background-color: #ffdada;
+}
+.carts .cart.infavorite .favourite i {
+  color: #ff8585;
+}
+
 main .cart img {
   width: 133px;
   height: 112px;
@@ -328,6 +338,14 @@ main .cart img {
 .fa-plus {
   color: #d3d3d3;
   font-size: 14px;
+}
+.carts .cart.inorder .plus {
+  border: 1px solid #fff;
+  background-color: #3cc755;
+  background-image: linear-gradient(0deg, #3cc755 0%, #89f09c 100%);
+}
+.carts .cart.inorder .plus i{
+  color: #fff;
 }
 
 .footer {

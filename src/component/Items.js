@@ -24,14 +24,14 @@ const Items = (props) => {
             </div>
             <div className='carts'>
                 {filteredProducts?.map((el) => (
-                    <div className={`cart ${el.inFavorite && 'infavorite'}`} key={el.id}>
+                    <div className={`cart ${el.inFavorite && 'infavorite'} ${el.inOrder && 'inorder'}`} key={el.id}>
                         <div onClick={() => { props.addFavorite(el) }} className="favourite" ><i className={`${el.inFavorite ? 'fa-solid fa-heart' : 'fa-light fa-heart'}`}></i></div>
-                        <img src={'./img/' + el.img} alt='' />
+                        <img src={'./img/' + el.img} alt='cart-img' />
                         <h2>{el.title}</h2>
                         <label className='item-price-title'>ЦЕНА:</label>
                         <b>{el.price}₽</b>
                         <button onClick={() => { props.addOrder(el) }} className='plus'>
-                            <i className='fa-solid fa-plus'></i>
+                            {(el.inOrder ? <i className="fa-solid fa-check"></i> : <i className='fa-solid fa-plus'></i>)}
                         </button>
                     </div>
                 ))}
