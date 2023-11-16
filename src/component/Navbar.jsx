@@ -57,7 +57,7 @@ const showNothing = (name) => {
     )
 }
 
-const Header = (props) => {
+const Navbar = (props) => {
     let [cartopen, setCartOpen] = useState(false)
     let [favorite1, setFavorite1] = useState(false)
     let [nav, setNav] = useState(false)
@@ -74,7 +74,7 @@ const Header = (props) => {
             <ul className={`nav ${nav && "active"}`}>
                 <button className='close-box btn' id='nav_button' onClick={() => setNav(nav => !nav)}><FaTimes className='close' /></button>
                 <li className='li'><FaShoppingCart onClick={() => setCartOpen(cartopen => !cartopen)} className='open btn' />{props.orders.length > 0 && <div className='orders-length'></div>}<p>1205 рубл.</p></li>
-                <li><FaHeart onClick={() => setFavorite1(favorite1 = !favorite1)} className='btn' />{props.favorite.length > 0 && <div className='favorite-length'></div>}</li>
+                <li><FaHeart onClick={() => setFavorite1(favorite1 = !favorite1)} className='btn' />{props?.favorite?.length > 0 && <div className='favorite-length'></div>}</li>
                 <li><FaUser className='btn' /></li>
             </ul>
             <i className="fa-solid fa-bars" onClick={() => setNav(nav => !nav)}></i>
@@ -103,4 +103,4 @@ const Header = (props) => {
     )
 }
 
-export default Header
+export default Navbar
